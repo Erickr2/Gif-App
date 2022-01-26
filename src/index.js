@@ -1,17 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+//importamos nuestro archivo para poder trabajr en el y renderizarlo en este archivo
+import GiftExpertApp from './GiftExpertApp';
+//estilos
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
+
+//componenete para denderizar mi archivo
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  //archivo GiftExpertApp
+    <GiftExpertApp />,
+  document.getElementById('root')//indicamos el lugar donde vamos a renderizar(root), que esta en el index.html
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
