@@ -8,11 +8,11 @@ import PropTypes from 'prop-types';
 export const AddCategory = ({setCategories}) => { //aqui debemos desestructurar{} para recibir los argumentos de otro archivo
 
     //este es nuestro hook/ recibe el valor del input y tiene el argumento para modificar el input
-    const [inputValue, setInputValue] = useState('')//el useState NUNCA debe estar vacio/ en este caso es un strin vacio ''
+    const [inputValue, setInputValue] = useState('')//el useState NUNCA debe estar vacio/ en este caso es un string vacio ''
 
     //este componenet va a recibir un evento que viene de mi input
     const handleInputChange = (e) =>{
-        //aqui le decimos que vamos a modificar el estado de mi input/e.target se refiere al elemento clikeado
+        //aqui le decimos que vamos a modificar el estado de mi input /e.target se refiere al elemento clikeado
         //value hace refrencia a mi variable inputValue que es donde se guarda la info que me mandan
         setInputValue(e.target.value);
     }
