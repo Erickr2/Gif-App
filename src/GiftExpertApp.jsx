@@ -7,7 +7,11 @@ import { GifGrid } from './components/GifGrid'
 const GiftExpertApp = () => {
     
     //con este hook vamos a declarar un arreglo de categorias 
-    const [categories, setCategories] = useState(['rick & morty'])
+    const [categories, setCategories] = useState(['rick and morty'])
+
+    const onAddCategory = ( newCategory ) => {
+        setCategories([newCategory, ...categories])
+    }
 
     /* const handleAdd = () => {
         
@@ -23,32 +27,33 @@ const GiftExpertApp = () => {
     return(
         <>
 
-            <h2>Busca ti gif aqui</h2>
+            <h2>Busca tu gif aqui</h2>
             {/* aqui estamos renderizando nuestro componente AddCategory*/}
-            <AddCategory setCategories={setCategories}/>
+            <AddCategory 
+            onNewCategory = { (value) => onAddCategory(value)}
+            />
             <hr />
             {/* aqui agergamos nuestro evento onClick a mi componente handleAdd */}
              {/* <button onClick={handleAdd}>Agregar categoria</button> */}
 
-            <ol>
+            
 
             {/* se debe mandar entre llaves el contenido del ol */}
 
             {
                 /* le indicamos que de nuestras categorias recorra cada valor/ le asignamos el valor a category*/
-                categories.map(category => (
+                categories.map( category => (
                     //aqui le mandamos la category y le asignamos la categorya actual(category)
                 <GifGrid
-
                 key={category} //aqui mandamos la "key" con ayuda del desestructuring
-                category= { category } //aqui mandamos con ayuda del desestructuring
+                category= { category} //aqui mandamos con ayuda del desestructuring
 
                 />
                  ))
                 
             }
 
-            </ol>
+        
             
         </>
     )

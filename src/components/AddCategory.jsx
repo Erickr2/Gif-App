@@ -5,16 +5,16 @@ import PropTypes from 'prop-types';
 
 
 //los componentes(AddCategory) siempre la primera debe ir capitalizada
-export const AddCategory = ({setCategories}) => { //aqui debemos desestructurar{} para recibir los argumentos de otro archivo
+export const AddCategory = ({onNewCategory}) => { //aqui debemos desestructurar{} para recibir los argumentos de otro archivo, recibimos el onNewCategory que es una propiedad de addCategory
 
     //este es nuestro hook/ recibe el valor del input y tiene el argumento para modificar el input
     const [inputValue, setInputValue] = useState('')//el useState NUNCA debe estar vacio/ en este caso es un string vacio ''
 
     //este componenet va a recibir un evento que viene de mi input
-    const handleInputChange = (e) =>{
+    const handleInputChange = ({target}) =>{ //em vez de recibir el evento, desestrcuturamos el target 
         //aqui le decimos que vamos a modificar el estado de mi input /e.target se refiere al elemento clikeado
         //value hace refrencia a mi variable inputValue que es donde se guarda la info que me mandan
-        setInputValue(e.target.value);
+        setInputValue(target.value);
     }
 
     const handleSubmit = (e) =>{
@@ -24,9 +24,7 @@ export const AddCategory = ({setCategories}) => { //aqui debemos desestructurar{
 
         //si nuestro valor no tiene nada atras ni adelante y su tamaño es mayor a dos letras
         if(inputValue.trim().length > 2){
-            //aqui le agregamos un callback donde el primer argumento es el estado anterior de mi hook y el otro el nuevo argumento a agregar
-                    setCategories(cats =>[inputValue,...cats,]);//hicimos un cambio para que el 1er argumento sea lo que mandan en el buscador 
-            //aqui le decimos que limpie la caja con un string vacio haciendo referencia a nuestro modificadorde input
+            onNewCategory(inputValue.trim())
             setInputValue('');
         }
 
