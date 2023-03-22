@@ -35,3 +35,7 @@ input{
 .tarjeta img{
     max-height: 170px;
 }
+
+a{
+    margin-right: 5px;
+}

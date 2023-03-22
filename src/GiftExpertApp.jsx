@@ -1,8 +1,6 @@
 import React, {useState} from 'react'
 //importamos nuestra funcion del archivo addCategory
-import { AddCategory } from './components/AddCategory'
-import { GifGrid } from './components/GifGrid'
-
+import { AddCategory, GifGrid } from "./components";
 //componente que va a recibir algun argumento o NO
 const GiftExpertApp = () => {
     
@@ -13,16 +11,6 @@ const GiftExpertApp = () => {
         setCategories([newCategory, ...categories])
     }
 
-    /* const handleAdd = () => {
-        
-        //forma 1 de agregar un objeto con ayuda del operador "spret"(...x) agregamos nuestro arreglo a uno nuevo
-        //y le mandamos el argumento que queremos agregar
-        //setCategories([...categories,'el chavo']);
-
-        //forma 2
-        //aqui le agregamos un callback donde el primer argumento es el estado anterior de mi hook y el otro el nuevo argumento a agregar
-        setCategories(cats =>[...cats,'el chavo' ]);
-    } */
   
     return(
         <>
@@ -33,12 +21,6 @@ const GiftExpertApp = () => {
             onNewCategory = { (value) => onAddCategory(value)}
             />
             <hr />
-            {/* aqui agergamos nuestro evento onClick a mi componente handleAdd */}
-             {/* <button onClick={handleAdd}>Agregar categoria</button> */}
-
-            
-
-            {/* se debe mandar entre llaves el contenido del ol */}
 
             {
                 /* le indicamos que de nuestras categorias recorra cada valor/ le asignamos el valor a category*/
